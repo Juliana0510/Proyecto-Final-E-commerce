@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mar de Gemas - Joyería Artesanal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="javascript:void(0)" onclick="showPage('home')">
+                <i class="fas fa-water"></i> Mar de Gemas
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)" onclick="showPage('home')">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)" onclick="showPage('products')">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)" onclick="showPage('about')">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)" onclick="showPage('contact')">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <div class="cart-icon" onclick="openCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page-section active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 data-aos="fade-up">Tesoros del Océano en Joyería</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Descubre nuestra colección inspirada en la belleza del mar</p>
+                <a href="javascript:void(0)" onclick="showPage('products')" class="btn-custom" data-aos="fade-up" data-aos-delay="200">Ver Colección</a>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stat-item">
+                            <div class="stat-number" id="visitCount">0</div>
+                            <div class="stat-label">Visitas</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-item">
+                            <div class="stat-number" id="productCount">0</div>
+                            <div class="stat-label">Productos</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Artesanal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="products-section">
+            <div class="container">
+                <h2 class="section-title">Productos Destacados</h2>
+                <div class="row" id="featuredProducts"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Products Page -->
+    <div id="productsPage" class="page-section">
+        <section class="products-section" style="padding-top: 100px;">
+            <div class="container">
+                <h2 class="section-title">Nuestra Colección Completa</h2>
+                <div class="row" id="allProducts"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="aboutPage" class="page-section">
+        <section class="products-section" style="padding-top: 100px;">
+            <div class="container">
+                <h2 class="section-title">Acerca de Nosotros</h2>
+                <div class="about-content">
+                    <p class="lead">Mar de Gemas es una empresa dedicada a la creación de joyería artesanal inspirada en la belleza del océano. Cada pieza es elaborada a mano con los más altos estándares de calidad.</p>
+                    <p>Nuestra pasión por el mar y la elegancia nos impulsa a crear piezas que no solo adornan, sino que cuentan historias de las profundidades marinas y transmiten la serenidad del agua.</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <div class="feature-icon"><i class="fas fa-hand-sparkles"></i></div>
+                                <h5>Hecho a Mano</h5>
+                                <p>Cada pieza es única y elaborada artesanalmente</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                                <h5>Materiales Premium</h5>
+                                <p>Utilizamos solo los mejores materiales</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                                <h5>Diseño Exclusivo</h5>
+                                <p>Diseños únicos inspirados en el mar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contactPage" class="page-section">
+        <section class="products-section" style="padding-top: 100px;">
+            <div class="container">
+                <h2 class="section-title">Contáctanos</h2>
+                
+                <!-- Información de Contacto -->
+                <div class="row mb-5">
+                    <div class="col-md-4 mb-4">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h5>Ubicación</h5>
+                            <p>Centro Comercial Único<br>Cali, Valle del Cauca<br>Colombia</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h5>Teléfono</h5>
+                            <p>+57 123 456 7890<br>WhatsApp disponible<br>Lun - Sab: 10am - 8pm</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h5>Email</h5>
+                            <p>info@mardegemas.com<br>ventas@mardegemas.com<br>Respuesta en 24 horas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Formulario de Contacto -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="contact-form">
+                            <h4 class="mb-4" style="color: var(--secondary-color);">Envíanos un Mensaje</h4>
+                            <form id="contactForm" onsubmit="return handleContactForm(event)">
+                                <div class="mb-3">
+                                    <label class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="contactName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="contactEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="contactPhone" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mensaje</label>
+                                    <textarea class="form-control" rows="5" id="contactMessage" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-custom w-100">Enviar Mensaje</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Mapa de Google -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="map-container">
+                            <h4 class="mb-4" style="color: var(--secondary-color);">Encuéntranos Aquí</h4>
+                            <div class="map-wrapper">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.5378486766836!2d-76.54450892422679!3d3.4205949965211894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a158b9f7888b%3A0x8c8b6e6a7e1f8c8c!2sCentro%20Comercial%20%C3%9Anico!5e0!3m2!1ses!2sco!4v1699999999999!5m2!1ses!2sco" 
+                                    width="100%" 
+                                    height="450" 
+                                    style="border:0; border-radius: 15px;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <a href="https://www.google.com/maps/dir//Centro+Comercial+%C3%9Anico,+Cali" 
+                                   target="_blank" 
+                                   class="btn btn-outline-primary">
+                                    <i class="fas fa-directions me-2"></i>Cómo Llegar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-section">
+                    <h5>Mar de Gemas</h5>
+                    <p>Joyería artesanal inspirada en la belleza y misterio del océano.</p>
+                    <div class="social-icons">
+                        <a href="javascript:void(0)"><i class="fab fa-facebook"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-section">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul>
+                        <li><a href="javascript:void(0)" onclick="showPage('home')">Inicio</a></li>
+                        <li><a href="javascript:void(0)" onclick="showPage('products')">Productos</a></li>
+                        <li><a href="javascript:void(0)" onclick="showPage('about')">Acerca de</a></li>
+                        <li><a href="javascript:void(0)" onclick="showPage('contact')">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-section">
+                    <h5>Contacto</h5>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Centro Comercial Único, Cali</li>
+                        <li><i class="fas fa-phone"></i> +57 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@mardegemas.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mar de Gemas. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-shopping-cart me-2"></i>Carrito de Compras</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems"></div>
+                    <div class="cart-total">
+                        Total: $<span id="cartTotal">0</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn-custom" onclick="checkout()">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
